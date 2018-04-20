@@ -48,8 +48,6 @@ unsigned rightrot (unsigned x, int n){
 
     return ((x >> n | ((x & ~(~0u << n)) << (PRECISION - n))));
 
-    //return x;
-
 }
 
 
