@@ -55,7 +55,6 @@ void expand (char s1[], char s2[])
         switch (s1[i]){
             case '-':
                 i++;
-                break;
             default:
                 startCharacter = s1[i];
                 if (isalnum(s1[i+1]))
