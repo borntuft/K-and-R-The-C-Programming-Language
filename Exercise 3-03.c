@@ -6,7 +6,7 @@ s2. Allow for letters of either case and digits, and be prepared to handle cases
 like a-b-c and a-zO-9 and -a-z. Arrange that a leading or trailing - is
 taken literally.
 
-Date:       April 24, 2018
+Date:       April 25, 2018
 
 Author:     BornTuft
 
@@ -50,25 +50,16 @@ void expand (char s1[], char s2[])
     int startCharacter = 0;
     int endCharacter = 0;
 
-    while (s1[i] != '\0') {
-
-        switch (s1[i]){
-            case '-':
-                i++;
-            default:
-                startCharacter = s1[i];
-                if (isalnum(s1[i+1]))
-                    endCharacter = s1[i+1];
-                else
-                    endCharacter = s1[i+2];
-                i++;
-                break;
-
+    while (s1[i] != '\0')
+    {
+        s2[j++] = s1[i++];
+        if ((s1[i] == '-') && (isalnum(s1[i + 1])) && (isalnum(s1[i - 1])))
+        {
+            startCharacter = s1[i - 1];
+            endCharacter   = s1[++i];
+            while (startCharacter < endCharacter - 1)
+                s2[j++] = ++startCharacter;
         }
-
-        while (startCharacter <= endCharacter)
-            s2[j++] = startCharacter++;
-
     }
     s2[j] = '\0';
 }
