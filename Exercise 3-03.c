@@ -37,7 +37,7 @@ void getLine (char s1[])
     int c = 0;
     int counter = 0;
 
-    while ((c = getchar()) != EOF && c != '\n')
+    while ((counter < LIMIT - 1) && (c = getchar()) != EOF && c != '\n')
         s1[counter++] = c;
 
     s1[counter] = '\0';
