@@ -19,7 +19,7 @@ void reverse (char s[]);
 
 int main (void)
 {
-    int n = 1768;
+    int n = 127;
     int b = 16;
     char s[LIMIT];
 
@@ -46,20 +46,19 @@ void reverse (char s[])
 
 void itob (int n, char s[], int b)
 {
+
+    char alphabet[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
     int counter = 0;
     int quotient = 0;
     int remainder = 0;
 
     do{
-        remainder = n % b;
-        n = n / b;
 
-        if (remainder >=10)
-            s[counter++] = remainder + 55;
-                /* If the remainder is 10 or more, we add 55 to
-                to the remainder to access alphabetic letters */
-        else
-            s[counter++] = remainder + '0';
+        remainder = n % b;
+        n /= b;
+        s[counter++] = alphabet[remainder];
+
     } while (n > 0);
 
     s[counter] = '\0';
